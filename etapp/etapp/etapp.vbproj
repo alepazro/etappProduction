@@ -7328,6 +7328,7 @@
     <Content Include="kendoui\js\kendo.virtuallist.min.js.map" />
     <Content Include="kendoui\js\kendo.web.min.js.map" />
     <Content Include="kendoui\js\kendo.window.min.js.map" />
+    <Content Include="libman.json" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>

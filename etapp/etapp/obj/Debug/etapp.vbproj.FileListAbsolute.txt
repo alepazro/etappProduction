@@ -2,3 +2,7 @@ C:\Users\dapr1\source\reposProduction\etapp\etapp\obj\Debug\etapp.vbproj.Assembl
 C:\Users\dapr1\source\reposProduction\etapp\etapp\obj\Debug\etapp.Resources.resources
 C:\Users\dapr1\source\reposProduction\etapp\etapp\obj\Debug\etapp.vbproj.GenerateResource.cache
 C:\Users\dapr1\source\reposProduction\etapp\etapp\obj\Debug\etapp.vbproj.CoreCompileInputs.cache
+C:\Users\dapr1\source\repos\EtappProduction\etapp\etapp\obj\Debug\etapp.vbproj.AssemblyReference.cache
+C:\Users\dapr1\source\repos\EtappProduction\etapp\etapp\obj\Debug\etapp.Resources.resources
+C:\Users\dapr1\source\repos\EtappProduction\etapp\etapp\obj\Debug\etapp.vbproj.GenerateResource.cache
+C:\Users\dapr1\source\repos\EtappProduction\etapp\etapp\obj\Debug\etapp.vbproj.CoreCompileInputs.cache

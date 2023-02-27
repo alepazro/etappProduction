@@ -1,0 +1,3 @@
+C:\Users\dapr1\source\repos\EtappProduction\etapp\etapp\obj\Release\etapp.Resources.resources
+C:\Users\dapr1\source\repos\EtappProduction\etapp\etapp\obj\Release\etapp.vbproj.GenerateResource.cache
+C:\Users\dapr1\source\repos\EtappProduction\etapp\etapp\obj\Release\etapp.vbproj.CoreCompileInputs.cache
