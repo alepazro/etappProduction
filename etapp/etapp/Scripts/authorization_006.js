@@ -316,9 +316,15 @@ function changePanel(panelId) {
                 debugger;
                 if (data.HasVideo == "True") {
                     window.open('https://video.easitrack.net/sso?access_token=' + data.VideoKey, '_blank');
-                } else {
-                    //window.open('videoservice.html', '_blank');
-                    window.location.href = "videoservice.html";
+                }else{
+                    if (data.IsDirectDealer) {
+                        //window.open('videoservice.html', '_blank');
+                        window.location.href = "videoservice.html";
+                        alert("You have not activated your Video account yet.  Please contact us!");
+
+                    } else {
+                        alert("You have not activated your Video account yet.  Please contact us!");
+                    }                    
                 }
                 break;
         }
