@@ -2705,6 +2705,7 @@
     <Content Include="kendoui\js\messages\kendo.messages.zh-HK.min.js" />
     <Content Include="kendoui\js\messages\kendo.messages.zh-TW.min.js" />
     <Content Include="kendoui\js\pako_deflate.min.js" />
+    <Content Include="login-old.html" />
     <Content Include="login.html" />
     <Content Include="logos\Adapco.png" />
     <Content Include="logos\Adapco2.png" />

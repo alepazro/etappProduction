@@ -11,6 +11,8 @@ var suspendedReasonId = 0;
 var userGUID = '';
 var userDealerId = -1;
 var rememberMe = false;
+var newapp = false;
+
 
 function recoverCredentialsResponse(xml, textStatus) {
     try {
@@ -251,6 +253,7 @@ function getRememberMeCookie() {
     try {
         var c_name = 'ETRM';
         var userName = "";
+        let newapp1 = localStorage.getItem('chknewApp') == "true" ? true : false;
         if (document.cookie.length > 0) {
             c_start = document.cookie.indexOf(c_name + "=");
             if (c_start != -1) {
@@ -260,6 +263,7 @@ function getRememberMeCookie() {
                 userName = unescape(document.cookie.substring(c_start, c_end));
                 document.getElementById('txtLogin').value = userName;
                 $('#chkRememberMe').prop('checked', true);
+                $('#chknewApp').prop('checked', newapp1);
             }
         }
     }
@@ -434,6 +438,12 @@ function logout() {
 }
 
 function validateToken(isMobile, sourcePage) {
+    debugger;
+    newapp = localStorage.getItem('chknewApp') == "true" ? true : false;
+    if (newapp) {
+        location.replace("http://localhost:55328/login.html?newapp=true")
+        return;
+    }
 
     //This has to be placed outside the try...catch to permit its use in the catch.
     if (isMobile == undefined) {
@@ -442,6 +452,7 @@ function validateToken(isMobile, sourcePage) {
     if (sourcePage == undefined) {
         sourcePage = '';
     }
+
 
     var loginPage = ''
     if (isMobile == true) {
