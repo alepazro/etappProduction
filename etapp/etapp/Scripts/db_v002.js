@@ -1,6 +1,7 @@
 ﻿//et_01_1.0.js
 var jsonDevices = false;
 var lastRefreshOn = false;
+var urlServicio = 'https://localhost:44385';
 
 function getBasicListError(jqXHR, textStatus, errorThrown) {
     try {
@@ -321,7 +322,7 @@ function getDb(method, data) {
     catch (err) {
 
     }
-}
+} 
 
 function postDb(method, data, params) {
     try {
@@ -357,11 +358,11 @@ function postDb(method, data, params) {
 }
 function getvalidatetoken() {
     try {
-        debugger;
+        
         var data = '';
         var result = false;
         var token = getTokenCookie('ETTK');
-        var url = 'https://pre.etrack.ws/etrest.svc/sso/videoapp/' + token + '?ep=false';
+        var url = 'https://localhost:44385/etrest.svc/sso/videoapp/' + token + '?ep=false';
         $.ajax({
             type: "GET",
             url: url,
@@ -370,11 +371,11 @@ function getvalidatetoken() {
             dataType: "json",
             processdata: false,
             success: function (data) {
-                debugger;
+                
                 result = data;
             },
             error: function (err) {
-                debugger;
+                
                 console.log(err)
                 var a = 1;
             },
@@ -387,4 +388,97 @@ function getvalidatetoken() {
     catch (err) {
         console.log("error-> " + err);
     }
+}
+function postDbJob2(method, data) {
+    
+    try {
+
+        var result = false;
+        var token = getTokenCookie('ETTK');
+        var url = urlServicio + '/jobs.svc/' + method + '?token=' + token;
+        $.ajax({
+            type: "POST",
+            url: url,
+            contentType: "application/json",
+            data: data,
+            dataType: "json",
+            processdata: false,
+            success: function (data) {
+
+                result = data;
+            },
+            error: function (err) {
+
+                console.log(err)
+                var a = 1;
+            },
+            async: false
+        });
+
+        return result;
+
+    }
+    catch (err) {
+        console.log("Error----> " + err);
+    }
+}
+function getDbBroker(method, data) {
+    try {
+        var token = getTokenCookie('ETTK');
+        var result = false;
+        var url = urlServicio + '/jobs.svc/broker/' + method + '?token=' + token + '&jobUniquekey='+ data;        
+        $.ajax({
+            type: "GET",
+            url: url,
+            contentType: "application/json",
+            data: 0,
+            dataType: "json",
+            processdata: false,
+            success: function (data) {
+                result = data;
+            },
+            error: function (err) {
+                debugger;
+
+            },
+            async: false
+        });
+
+        return result;
+
+    }
+    catch (err) {
+        debugger;
+
+    }
+}
+function resendEmailDB(jobuniquekey, emailto) {
+    try {
+        debugger;
+        var result = false;
+        var token = getTokenCookie('ETTK');
+        var url = urlServicio + '/jobs.svc/resendemail?token=' + token + '&jobUniquekey=' + jobuniquekey + '&emails=' + emailto;
+        $.ajax({
+            type: "POST",
+            url: url,
+            contentType: "application/json",
+            data: 0,
+            dataType: "json",
+            processdata: false,
+            success: function (data) {
+                result = data;
+            },
+            error: function (err) {
+                console.log(err)
+                var a = 1;
+            },
+            async: false
+        });
+        return result;
+
+    }
+    catch (err) {
+        console.log("Error----> " + err);
+    }
+
 }

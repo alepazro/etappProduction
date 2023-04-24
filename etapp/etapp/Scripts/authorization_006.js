@@ -317,7 +317,7 @@ function changePanel(panelId) {
             case '17', 17:
                 //location.href = 'elog.html';                
                 var data = getvalidatetoken();
-                debugger;
+                
                 if (data.HasVideo == "True") {
                     window.open('https://video.easitrack.net/sso?access_token=' + data.VideoKey, '_blank');
                 }else{
@@ -438,7 +438,7 @@ function logout() {
 }
 
 function validateToken(isMobile, sourcePage) {
-    debugger;
+    
     newapp = localStorage.getItem('chknewApp') == "true" ? true : false;
     if (newapp) {
         location.replace("http://localhost:55328/login.html?newapp=true")
@@ -479,7 +479,7 @@ function validateToken(isMobile, sourcePage) {
                 type: "POST",
                 success: function (xml, textStatus) {
                     if (textStatus == 'success') {
-                        debugger;
+                        
 
                         var objResponse = $("string", xml).text();
                         if (objResponse == '') {
@@ -529,8 +529,9 @@ function validateToken(isMobile, sourcePage) {
                                 location.pathname.toLowerCase().indexOf('roto.wlius') == -1 &&
                                 location.pathname.toLowerCase().indexOf('settingsunits.html') == -1 &&
                                 location.pathname.toLowerCase().indexOf('videoservice.html') == -1 &&
-                                location.pathname.toLowerCase().indexOf('settings_v2.html') == -1) {
-                                    location.href = 'tracking.html';
+                                location.pathname.toLowerCase().indexOf('settings_v2.html') == -1 &&
+                                location.pathname.toLowerCase().indexOf('brokerorderpanel.html')==-1) {
+                                location.href = 'tracking.html';
                                 }
                             }
                             ret = true;
