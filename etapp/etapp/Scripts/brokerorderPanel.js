@@ -11,7 +11,7 @@ function getBoardbrokers() {
         var data = 'lastFetchOn=' + escape(lastFetchOn) + '&qtyPanels=' + qtyPanels + '&devicesPerPanel=' + devicesPerPanel;
         $.ajax({
             type: "GET",
-            url: 'https://localhost:44385/etrack.svc/getDevicesbrokers/' + escape(token),
+            url: 'https://pre.etrack.ws/etrack.svc/getDevicesbrokers/' + escape(token),
             contentType: 'application/json',
             data: data,
             dataType: "json",
@@ -112,7 +112,7 @@ function savebroker() {
     //clearinputs();
     try {
         
-        
+        resendEmail = false;
         var bool = true;
         //e.preventDefault();
         //var dataItem = this.dataItem($(e.currentTarget).closest("tr"));

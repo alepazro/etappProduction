@@ -1,7 +1,7 @@
 ﻿//et_01_1.0.js
 var jsonDevices = false;
 var lastRefreshOn = false;
-var urlServicio = 'https://localhost:44385';
+var urlServicio = 'https://pre.etrack.ws';
 
 function getBasicListError(jqXHR, textStatus, errorThrown) {
     try {
@@ -362,7 +362,7 @@ function getvalidatetoken() {
         var data = '';
         var result = false;
         var token = getTokenCookie('ETTK');
-        var url = 'https://localhost:44385/etrest.svc/sso/videoapp/' + token + '?ep=false';
+        var url = 'https://pre.etrack.ws/etrest.svc/sso/videoapp/' + token + '?ep=false';
         $.ajax({
             type: "GET",
             url: url,
