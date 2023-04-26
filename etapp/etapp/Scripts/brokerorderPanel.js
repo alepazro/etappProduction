@@ -11,7 +11,7 @@ function getBoardbrokers() {
         var data = 'lastFetchOn=' + escape(lastFetchOn) + '&qtyPanels=' + qtyPanels + '&devicesPerPanel=' + devicesPerPanel;
         $.ajax({
             type: "GET",
-            url: 'https://pre.etrack.ws/etrack.svc/getDevicesbrokers/' + escape(token),
+            url: 'https://localhost:44385/etrack.svc/getDevicesbrokers/' + escape(token),
             contentType: 'application/json',
             data: data,
             dataType: "json",
@@ -137,12 +137,18 @@ function savebroker() {
     }
 }
 function savebroker2() {
+    var resul = null;
     try {
         debugger;
         if (resendEmail) {//from boton View()
             let sendemail = $('#chksendtraking').prop('checked') == true ? true : false;
             if (sendemail) {
-                resendEmailDB(jobuniqueKey, $("#emailto").val());
+                resul = resendEmailDB(jobuniqueKey, $("#emailto").val());
+                if (resul.isOk) {
+                    toastr.success('Email sent successfully ');
+                } else {
+                    toastr.error('Error sending email');
+                }
             }
         }else {
             var loadt = $('select[name=type] option').filter(':selected').val();
