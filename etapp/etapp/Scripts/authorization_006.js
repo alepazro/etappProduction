@@ -441,7 +441,7 @@ function validateToken(isMobile, sourcePage) {
     
     newapp = localStorage.getItem('chknewApp') == "true" ? true : false;
     if (newapp) {
-        location.replace("http://localhost:55328/login.html?newapp=true")
+        location.replace("https://localhost:44343/login.html?newapp=true")
         return;
     }
 
@@ -530,7 +530,8 @@ function validateToken(isMobile, sourcePage) {
                                 location.pathname.toLowerCase().indexOf('settingsunits.html') == -1 &&
                                 location.pathname.toLowerCase().indexOf('videoservice.html') == -1 &&
                                 location.pathname.toLowerCase().indexOf('settings_v2.html') == -1 &&
-                                location.pathname.toLowerCase().indexOf('brokerorderpanel.html')==-1) {
+                                location.pathname.toLowerCase().indexOf('brokerorders.html') == -1 &&
+                                location.pathname.toLowerCase().indexOf('brokerorderpanel.html') == -1) {
                                 location.href = 'tracking.html';
                                 }
                             }

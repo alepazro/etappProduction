@@ -217,6 +217,8 @@
     <Content Include="bootstrap\js\bootstrap.js" />
     <Content Include="bootstrap\js\bootstrap.min.js" />
     <Content Include="brokerorderPanel.html" />
+    <Content Include="brokerorders.html" />
+    <Content Include="brokertraking.html" />
     <Content Include="buy-now.html" />
     <Content Include="carouselSkins\ie7\credits.txt" />
     <Content Include="carouselSkins\ie7\loading-small.gif" />
@@ -2977,6 +2979,7 @@
     <Content Include="Scripts\bootstrap\js\bootstrap.min.js" />
     <Content Include="Scripts\branding.js" />
     <Content Include="Scripts\brokerorderPanel.js" />
+    <Content Include="Scripts\brokertraking.js" />
     <Content Include="Scripts\buyNowButton.js" />
     <Content Include="Scripts\ccvalidate.js" />
     <Content Include="Scripts\chat.js" />
