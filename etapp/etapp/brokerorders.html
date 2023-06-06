@@ -196,7 +196,7 @@
                                                 <th scope="col"></th>
                                                 <!--<th scope="col">Device</th>-->
                                                 <th scope="col">Name</th>
-                                                <th scope="col">BrokerNumber</th>
+                                                <th scope="col">Order Number</th>
                                                 <th scope="col">PickupAddress</th>
                                                 <th scope="col">Pickupdetetime</th>
                                                 <th scope="col">DeliveryAddress</th>
@@ -228,15 +228,15 @@
             <hr style="height: 10px; background-color:#326DB4" />
             <div class="container-fluid">
                 <h2>
-                    Broker detail <span id="det_brokerHead"></span>
+                    Order Detail <span id="det_brokerHead"></span>
                 </h2>
                 <div class="row">
                     <div class="col-3">
-                        <label for="det_Name" class="form-label">Name</label>
+                        <label for="det_Name" class="form-label">Broker Name</label>
                         <input type="text" class="form-control" id="det_Name" placeholder="..." disabled>
                     </div>
                     <div class="col-3">
-                        <label for="det_BrokerNumber" class="form-label">Broker Number</label>
+                        <label for="det_BrokerNumber" class="form-label">Order Number</label>
                         <input type="text" class="form-control" id="det_BrokerNumber" placeholder="..." disabled>
                     </div>
                     <div class="col-3">
@@ -286,6 +286,7 @@
                 <div class="row">
                     <div class="col-3">
                         <!--<label for="det_ViewMap" class="form-label">View Map</label>-->
+                        <span>click here to go to the map</span><br />
                         <a id="det_ViewMap" href="" target="_blank"><img src="https://img.icons8.com/dusk/128/null/google-maps.png" /></a>
                     </div>
                     <div class="col-6">
@@ -299,7 +300,7 @@
             <hr style="height: 10px; background-color:#326DB4" />
             <div class="container-fluid">
                 <h2>
-                    Broker Stops <span id="det_brokerHeadStops"></span>
+                    Order Stops <span id="det_brokerHeadStops"></span>
                 </h2>
                 <div class="row">
                     <div class="col-md-12 col-sm-6">
@@ -391,7 +392,9 @@
                                                         <label>Date</label>
                                                     </div>
                                                     <div class="col-6">
-                                                        <input id="StopDatetime" type="datetime-local" class="form-control" placeholder="..." required>
+                                                        <!--<input id="StopDatetime" type="datetime-local" class="form-control" placeholder="..." required>-->
+                                                        <input id="StopDatetime" type="text" class="form-control" placeholder="..." required>
+
                                                     </div>
                                                 </div>
                                                 <div class="row">
@@ -435,10 +438,10 @@
                                     <input type="hidden" id="sms_brokerid">
                                     <input type="hidden" id="sms_deviceid">
                                     <div class="mb-3">
-                                        <label for="sms" class="col-form-label">Phone</label>
-                                        <input type="text" class="form-control" id="smsPhone" placeholder="1234567891">
+                                        <label for="sms" class="col-form-label">Phone <span style="font-size:10px;color:red">USA ONLY,AREACODE + PHONE NUMBER</span></label>
+                                        <input type="text" class="form-control" id="smsPhone" placeholder="phone1;phone2;phone3...">
                                     </div>
-                                    <div class="mb-3">
+                                    <div class="mb-3" style="display:none">
                                         <label for="smsMessage" class="col-form-label">Message:</label>
                                         <textarea class="form-control" id="smsMessage"></textarea>
                                     </div>
@@ -525,6 +528,13 @@
                 } else {
                     $('#suggestions').fadeOut(1000);
                 }
+            });
+            $(function () {
+                $("#StopDatetime").datepicker(
+                    {
+                        dateFormat: 'dd-mm-yy'
+                    }
+                );
             });
             if (validateToken(false, 'brokerorders.html') == true) {
                 debugger;
