@@ -37,18 +37,18 @@ function changeMarkerPosition(marker, info) {
     marker.setPosition(latlng);
 }
 function LatLngBounds(info, map) {
-    
+
     var puntos = [];
     puntos.push(new google.maps.LatLng(info.PickupLatitude, info.PickupLongitude));
     puntos.push(new google.maps.LatLng(info.DeliveryLatitud, info.DeliveryLongitud));
     puntos.push(new google.maps.LatLng(info.Latitude, info.Longitude));
-    
+
     $.each(info.Stops, function (ind, elem) {
-        
+
         puntos.push(new google.maps.LatLng(elem.PickupAddresscoordinatesLat, elem.PickupAddresscoordinatesLng));
-        
+
     });
-    
+
     // Crea un objeto LatLngBounds
     var bounds = new google.maps.LatLngBounds();
     // Agrega cada punto al objeto LatLngBounds
@@ -135,7 +135,7 @@ function marker(info) {
         infoWindowDevice.open(pmarkerDevice.getMap(), pmarkerDevice);
     });
 
-    
+
     const icon = {
         url: "/images/BrokerStop2.png", // url
         scaledSize: new google.maps.Size(25, 25), // scaled size
@@ -143,7 +143,7 @@ function marker(info) {
         anchor: new google.maps.Point(0, 0) // anchor
     };
     $.each(info.Stops, function (ind, elem) {
-                
+
         infoWindowsStops = new google.maps.InfoWindow();
         pmarkerStop = new google.maps.Marker({
             position: { lat: elem.PickupAddresscoordinatesLat, lng: elem.PickupAddresscoordinatesLng },
@@ -156,9 +156,9 @@ function marker(info) {
             infoWindowsStops.setContent(pmarkerStop.getTitle());
             infoWindowsStops.open(pmarkerStop.getMap(), pmarkerStop);
         });
-    }); 
+    });
 
-   
+
 }
 function buidtTraking(info) {
     //document.getElementById('Device').innerHTML = info.Device;
@@ -169,13 +169,13 @@ function buidtTraking(info) {
     initMap(info);
 
     marker(info);
-    
+
     LatLngBounds(info, pmap);
     setInterval(function () {
         debugger;
         info = gettraking(traking);
-        var pzoom = parseInt(localStorage.getItem("zoom"));        
-        
+        var pzoom = parseInt(localStorage.getItem("zoom"));
+
         if (info != null) {
             changeMarkerPosition(pmarkerDevice, info);
 
@@ -186,7 +186,7 @@ function buidtTraking(info) {
                 var pmaplon = pmap.getCenter().lng();
                 var zoom = parseInt(localStorage.getItem("zoom"));
                 pmap.setCenter({ lat: pmaplat, lng: pmaplon });
-                pmap.setZoom(zoom);                    
+                pmap.setZoom(zoom);
             }
 
             //pmap.setCenter({ lat: info.Lat, lng: info.Lng });
