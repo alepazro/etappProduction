@@ -5,9 +5,10 @@ var Broker = {};
 var BrokerStop = {};
 var deviceid = 0;
 var brokerID = 0;
+
 function getBoardbrokers() {
     try {
-
+        
         var token = getTokenCookie('ETTK');
         //var data = 'lastFetchOn=' + escape(lastFetchOn) + '&qtyPanels=' + qtyPanels + '&devicesPerPanel=' + devicesPerPanel;
         $.ajax({
@@ -28,7 +29,7 @@ function getBoardbrokers() {
     }
 }
 function getBrokersDevices(data, textStatus, jqXHR) {
-
+    
     let colorstatus = "";
     let speedcolor = "";
     let Workinprogress = "";
@@ -41,40 +42,41 @@ function getBrokersDevices(data, textStatus, jqXHR) {
                     return;
                 }
             }
-            $.each(data, function (key, value) {
-                colorstatus = eventColor(value.EventCode);
-                speedcolor = speedingColor(value.Speed)
-                row += "<tr>";
-                row += "<td><button type='button' data-toggle='modal' data-target='#formbroker' onclick=savebroker()>New</button></td>";
-                row += "<td><button type='button' data-toggle='modal' data-target='#formtrakingnput' onclick=viewBrokersDevices(" + value.ID + ")>Brokers</button></td>";
-                row += "<td><button type='button' data-toggle='modal' data-target='#formtrakingnput' onclick=deletebroker(0," + value.ID + ")>Finish All</button></td>";
-                row += "<td style=display:none>" + value.ID + "</td>";
-                row += "<td style=display:none>" + value.DeviceID + "</td>";
-                row += "<td style=display:none>" + value.DriverID + "</td>";
-                row += "<td style=display:none>" + value.ShortName + "</td>";
-                row += "<td style=display:none>" + value.LastUpdatedOn + "</td>";
-                row += "<td style=display:none>" + value.GPSStatus + "</td>";
-                row += "<td style=display:none>" + value.GPSAge + "</td>";
-                row += "<td style=display:none>" + value.DriverPhone + "</td>";
-                row += "<td style=display:none>" + value.TextColor + "</td>";
-                row += "<td style=display:none>" + value.BgndColor + "</td>";
-                row += "<td><img src=" + value.IconURL + " alt='image'></td>";
-                row += "<td style=display:none>" + value.IconID + "</td>";
-                row += "<td>" + value.Name + "</td>";
-                row += "<td style=background-color:" + colorstatus + ">" + value.EventName + "</td>";
-                row += "<td>" + value.EventDate + "</td>";
-                row += "<td>" + value.FullAddress + "</td>";
-                row += "<td>" + value.DriverName + "</td>";
-                row += "<td  style=background-color:" + speedcolor + ">" + value.Speed + "</td>";
-                row += "<td>" + value.CountBrokers + "</td>";
-                row += "</tr>";
+           $.each(data, function (key, value) {
+               
+               colorstatus = eventColor(value.EventCode);
+               speedcolor = speedingColor(value.Speed)
+               row += "<tr>";
+               row += "<td><button type='button' data-toggle='modal' data-target='#formbroker' onclick=savebroker()>New</button></td>";
+               row += "<td><button type='button' data-toggle='modal' data-target='#formtrakingnput' onclick=viewBrokersDevices(" + value.ID +")>Orders</button></td>";
+               row += "<td><button type='button' data-toggle='modal' data-target='#formtrakingnput' onclick=deletebroker(0," + value.ID + ")>Finish All</button></td>";
+               row += "<td style=display:none>" + value.ID + "</td>";
+               row += "<td style=display:none>" + value.DeviceID + "</td>";
+               row += "<td style=display:none>" + value.DriverID + "</td>";
+               row += "<td style=display:none>" + value.ShortName + "</td>";
+               row += "<td style=display:none>" + value.LastUpdatedOn + "</td>";
+               row += "<td style=display:none>" + value.GPSStatus + "</td>";
+               row += "<td style=display:none>" + value.GPSAge + "</td>";
+               row += "<td style=display:none>" + value.DriverPhone + "</td>";
+               row += "<td style=display:none>" + value.TextColor + "</td>";
+               row += "<td style=display:none>" + value.BgndColor + "</td>";
+               row += "<td><img src=" + value.IconURL + " alt='image'></td>";
+               row += "<td style=display:none>" + value.IconID + "</td>";
+               row += "<td>" + value.Name + "</td>";
+               row += "<td style=background-color:" + colorstatus + ">" + value.EventName + "</td>";
+               row += "<td>" + value.EventDate + "</td>";
+               row += "<td>" + value.FullAddress + "</td>";
+               row += "<td>" + value.DriverName + "</td>";
+               row += "<td  style=background-color:" + speedcolor + ">" + value.Speed + "</td>";
+               row += "<td>" + value.CountBrokers + "</td>";  
+               row += "</tr>";
 
 
 
 
 
-                //row += "<td onclick=showLocationInMap('mapCanvas'," + device.latitude + "," + device.longitude+");>"+ value.address + "</td>";
-
+              //row += "<td onclick=showLocationInMap('mapCanvas'," + device.latitude + "," + device.longitude+");>"+ value.address + "</td>";
+                
 
             });
             $("#tbody_brokerlist").append(row)
@@ -84,7 +86,6 @@ function getBrokersDevices(data, textStatus, jqXHR) {
         alert('getBoardDevicesOk: ' + err.description);
     }
 }
-
 function setLastFetchOn() {
     try {
         if (lastFetchOn == 0) {
@@ -113,16 +114,16 @@ function loadbrokerOrder(){
 }
 function savebroker() {
     //clearinputs();
-    try {
+    try {      
         Broker = {};
         var bool = true;
         //e.preventDefault();
         //var dataItem = this.dataItem($(e.currentTarget).closest("tr"));
         //window.open('crmViewCustomer.html?' + 'uid=' + dataItem.uniqueKey, target = "_blank");
         $("#brokerlist tr").click(function () {
-            debugger;
+            
             if (bool) {
-                debugger;
+                
                 var tr = $(this)[0];
                 //var brokerdeviceguid = tr.cells[0].innerText;
                 Broker.DeviceID = tr.cells[3].innerText;
@@ -139,13 +140,12 @@ function savebroker() {
         alert('Error: ' + err.message);
     }
 }
-
 function savebroker2() {
-    try {
+    try {      
         let procesado
         //var loadt = $('select[name=type] option').filter(':selected').val();
-
-        if (validadteForm()) {
+        
+        if (validadteForm()) {        
             Broker.Name = $("#name").val();
             Broker.BrokerNumber = $("#Ordernumber").val();
             Broker.PickupAddress == $("#PickupAddress").val();
@@ -173,13 +173,13 @@ function savebroker2() {
                 toastr.error('ERROR create job');
             }
         }
-        /*
-         *Note: This information is retrieved from the search events of the creation form.
-         Job.PickupAddresscoordinatesLat = "";
-         Job.PickupAddresscoordinatesLng = "";
-         Job.DeliveryAddressscoordinatesLat = "";
-         Job.DeliveryAddressscoordinatesLng = "";
-         */
+       /*
+        *Note: This information is retrieved from the search events of the creation form.
+        Job.PickupAddresscoordinatesLat = "";
+        Job.PickupAddresscoordinatesLng = "";
+        Job.DeliveryAddressscoordinatesLat = "";
+        Job.DeliveryAddressscoordinatesLng = "";
+        */
     }
     catch (err) {
         alert('Error: ' + err.message);
@@ -195,6 +195,14 @@ function clearform() {
     $("#DeliveryDatetime").val('');
     $("#Observations").val('');
     
+
+}
+function clearformStop() {
+    $("#stopaddress").val('');
+    $("#StopDatetime").val('');
+    $("#StopObservations").val('');
+    
+
 
 }
 function validadteForm() {
@@ -238,88 +246,11 @@ function validadteForm() {
 }
 function viewtraking() {
     if ($('#chksendtraking').prop('checked')) {        
-        $("#emailstraking").fadeIn(1000).show();
-    } else {
-        $('#emailstraking').fadeOut(1000).hide();        
-    }
-    
-}
-function View() {
-    var bool = true;
-    var broker = [];
-    clearinputs();
-    
-    try {
-        $("#tbody_brokerlist tr").click(function () {
-            if (bool) {               
-
-                var tr = $(this)[0];
-                jobuniqueKey = tr.cells[13].innerText;
-                resendEmail = true;
-                broker = getDbBroker("detail", jobuniqueKey);
-                debugger;
-                if (broker.length > 0) {
-                    debugger;
-                    $("#title").text("Broker Information")
-                    $("#brokerdevice").text(broker[0].DeviceName);
-                    $("#brokerdriver").text(broker[0].DriverName);
-                    $("#name").val(broker[0].JobName);
-                    $("#name").prop('disabled', true);
-                    $("#Ordernumber").val(broker[0].JobNumber);
-                    $("#Ordernumber").prop('disabled', true);
-                    $("#PickupAddress").val(broker[0].PickupAddress);
-                    $("#PickupAddress").prop('disabled', true);
-                    $("#PickupDatetime").val(broker[0].Pickupdetetime);
-                    $("#PickupDatetime").prop('disabled', true);
-                    $("#address").val(broker[0].DeliveryAddress);
-                    $("#address").prop('disabled', true);
-                    $("#DeliveryDatetime").val(broker[0].Deliverydatetime);
-                    $("#DeliveryDatetime").prop('disabled', true);
-                    $("#Observations").val(broker[0].Observations);
-                    $("#Observations").prop('disabled', true);
-                    $("#emailto").val(broker[0].SendTo);
-                    debugger;
-                    if (broker[0].SendTo != "") {
-                        $("#notificacation").text('The tracking was sent to email  ');
-                        $("#spanemailtraking").text(" " + broker[0].SendTo);
-                        $("#linktraking").text(" View Tracking")
-                        $("#linktraking").attr("href", "https://pre.easitrack.net/trakingnumber.html?guid=" + broker[0].TrackingNumber);
-                        $("#linktraking").attr("target","_blank");
-                         
-                    } else {
-                        $("#notificacation").text('No tracking sent was found');
-                    }
-
-                } else {
-                    toastr.error('The device does not have an assigned order');
-                }
-                         
-            }
-            bool = false
-
-        });
-
-    }
-    catch (error) {
+        $("#emailstraking").fadeIn(1000).show();       
         
+    } else {
+        $('#emailstraking').fadeOut(1000).hide();    
     }
-}
-function clearinputs() {
-
-    $("#title").text('');
-    $("#brokerdevice").text('');
-    $("#name").text('');
-    $("#Ordernumber").text('');
-    $("#PickupAddress").text('');
-    $("#PickupDatetime").text('');
-    $("#address").text('');
-    $("#DeliveryDatetime").text('');
-    $("#Observations").text('');
-    $("#emailto").text('');   
-    $("#notificacation").text('');
-    $("#spanemailtraking").text('');
-    $("#linktraking").text('');
-
     
 }
 function viewSms() {
@@ -333,6 +264,7 @@ function viewSms() {
 function postBroker(method, data) {
 
     try {
+        
 
         var result = false;
         var token = getTokenCookie('ETTK');
@@ -345,11 +277,11 @@ function postBroker(method, data) {
             dataType: "json",
             processdata: false,
             success: function (data) {
-
+                
                 result = data;
             },
             error: function (err) {
-
+                
                 console.log(err)
                 var a = 1;
             },
@@ -363,93 +295,7 @@ function postBroker(method, data) {
         console.log("Error----> " + err);
     }
 }
-function deletebroker(brokerid, deviceid) {
-    var alert = "";
-    if (brokerid > 0) {
-        alert = "Are you sure to delete this order?!";
-    }
-    if (deviceid) {
-        alert = "All orders for this unit will be deleted.You won't be able to revert this!";
-    }
-
-    Swal.fire({
-        title: 'Are you sure?',
-        text: alert,
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes, delete it!'
-    }).then((result) => {
-        debugger;
-        if (result.isConfirmed) {
-
-            var result = getdeletebrokerOders(brokerid, deviceid);
-            if (result.isOk) {
-                Swal.fire(
-                    'Deleted!',
-                    'Your Broker Orders has been deleted.',
-                    'success'
-                )
-                if (brokerid > 0) {
-                    const queryString = window.location.search;
-                    const urlParams = new URLSearchParams(queryString);
-                    deviceid = urlParams.get('Deviceid')
-                    if (deviceid != undefined && deviceid > 0) {
-                        loadbrokerOrders(0, deviceid);
-
-                    } else {
-                        loadbrokerOrders(0, 0);
-                    }
-                } else {
-                    if (deviceid > 0) {
-                        getBoardbrokers();
-                    }
-                }
-
-            } else {
-                toastr.error('an error occurred');
-            }
-
-        }
-    })
-
-
-}
-function getdeletebrokerOders(brokerid, deviceid) {
-    try {
-
-        var token = getTokenCookie('ETTK');
-        //var data = 'lastFetchOn=' + escape(lastFetchOn) + '&qtyPanels=' + qtyPanels + '&devicesPerPanel=' + devicesPerPanel;
-        $.ajax({
-            type: "GET",
-            url: 'https://localhost:44385/Brokers.svc/delete?token=' + escape(token) + '&BrokerID=' + escape(brokerid) + '&DeviceID=' + escape(deviceid),
-            contentType: "application/json; charset=utf-8",
-            data: 0,
-            dataType: "json",
-            processdata: false,
-            success: function (data) {
-
-                result = data;
-            },
-            error: function (err) {
-
-                console.log(err)
-            },
-            async: false
-        });
-        return result;
-    }
-    catch (err) {
-        console.log("error==> " + err);
-        alert('getBoardDevices: ' + err.description);
-    }
-}
-function viewBrokersDevices(deviceID) {
-
-    window.open('https://localhost:44343/brokerorders.html?Deviceid=' + deviceID + '', '_blank');
-}
-function loadbrokerOrders(brokerid, deviceid) {
+function loadbrokerOrders(brokerid,deviceid) {
     getbrokerOders(brokerid, deviceid);
 }
 function getbrokerOders(brokerid, deviceid) {
@@ -475,11 +321,10 @@ function getbrokerOders(brokerid, deviceid) {
     }
 }
 function getBrokersOrdersList(data, textStatus, jqXHR) {
-
+    
     let colorstatus = "";
     let speedcolor = "";
     let Workinprogress = "";
-    debugger;
     try {
         $("#tbody_brokerlist").empty();
         var row = "";
@@ -489,8 +334,8 @@ function getBrokersOrdersList(data, textStatus, jqXHR) {
                     return;
                 }
             }
-
-            if (data.length > 0 && deviceid > 0) {
+            
+            if (data.length>0 && deviceid > 0) {
                 $("#h1_brokerorder").text('');
                 $("#h1_brokerorder").text(data[0].DeviceName);
             } else {
@@ -498,15 +343,15 @@ function getBrokersOrdersList(data, textStatus, jqXHR) {
             }
             $.each(data, function (key, value) {
 
-
+                
 
                 row += "<tr>";
                 //row += "<td><button type='button' data-toggle='modal' data-target='#formtrakingnput' onclick=alert('Finish')>Detail</button></td>";
-                row += "<td><button type='button' onclick=detailsBroker(" + value.ID + ")>Detail</button></td>";
+                row += "<td><button type='button' onclick=detailsBroker(" + value.ID+")>Detail</button></td>";
                 row += "<td><button type='button' onclick=deletebroker(" + value.ID + ",0)>Finish Order</button></td>";
-                row += "<td><button type='button' data-toggle='modal' data-target='#formbrokerStop' onclick=saveStop(" + value.ID + ")>Add Stop</button></td>";
+                row += "<td><button type='button' data-toggle='modal' data-target='#formbrokerStop' onclick=saveStop(" + value.ID +")>Add Stop</button></td>";
                 //row += "<td><button type='button' onclick=alert('Finish')>Add Stop</button></td>";
-                row += "<td><button type='button' data-toggle='modal' data-target='#sendEmails' onclick=sendEmails(" + value.ID + ")>Send Email</button></td>";
+                row += "<td><button type='button' data-toggle='modal' data-target='#sendEmails' onclick=sendEmails(" + value.ID+")>Send Email</button></td>";
                 row += "<td><button type='button' data-toggle='modal' data-target='#sendsms' onclick=sendSms(" + value.ID + ")>Send SMS</button></td>";
                 row += "<td style=display:none>" + value.ID + "</td>";
                 //row += "<td>" + value.DeviceName + "</td>";
@@ -528,12 +373,98 @@ function getBrokersOrdersList(data, textStatus, jqXHR) {
                 row += "</tr>";
             });
             $("#tbody_brokerlist").append(row);
-        }
+        } 
     }
     catch (err) {
-
+        
         alert('getBrokersOrders: ' + err.description);
     }
+}
+function getdeletebrokerOders(brokerid, deviceid) {
+    try {
+
+        var token = getTokenCookie('ETTK');
+        //var data = 'lastFetchOn=' + escape(lastFetchOn) + '&qtyPanels=' + qtyPanels + '&devicesPerPanel=' + devicesPerPanel;
+        $.ajax({
+            type: "GET",
+            url: 'https://localhost:44385/Brokers.svc/delete?token=' + escape(token) + '&BrokerID=' + escape(brokerid) + '&DeviceID=' + escape(deviceid),
+            contentType: "application/json; charset=utf-8",
+            data: 0,
+            dataType: "json",
+            processdata: false,
+            success: function (data) {
+                
+                result = data;
+            },
+            error: function (err) {
+                
+                console.log(err)
+            },
+            async: false
+        });
+        return result;
+    }
+    catch (err) {
+        console.log("error==> " + err);
+        alert('getBoardDevices: ' + err.description);
+    }
+}
+function deletebroker(brokerid, deviceid) {
+    var alert = "";
+    if (brokerid > 0) {
+        alert = "Are you sure to delete this order?!";
+    }
+    if (deviceid) {
+        alert = "All orders for this unit will be deleted.You won't be able to revert this!";
+    }
+
+    Swal.fire({
+        title: 'Are you sure?',
+        text: alert,
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+        debugger;
+        if (result.isConfirmed) {
+            
+            var result = getdeletebrokerOders(brokerid, deviceid);
+            if (result.isOk) {
+                Swal.fire(
+                    'Deleted!',
+                    'Your Broker Orders has been deleted.',
+                    'success'
+                )
+                if (brokerid > 0) {
+                    const queryString = window.location.search;
+                    const urlParams = new URLSearchParams(queryString);
+                    deviceid = urlParams.get('Deviceid')
+                    if (deviceid != undefined && deviceid > 0) {
+                        loadbrokerOrders(0, deviceid);
+
+                    } else {
+                        loadbrokerOrders(0, 0);
+                    }
+                } else {
+                    if (deviceid > 0) {
+                        getBoardbrokers();
+                    }
+                }
+                
+            } else {
+                toastr.error('an error occurred');
+            }
+           
+        }
+    })
+    
+
+}
+function viewBrokersDevices(deviceID) {
+    
+    window.open('https://localhost:44343/brokerorders.html?Deviceid=' + deviceID +'','_blank');
 }
 function detailsBroker(id) {
     debugger;
@@ -545,19 +476,19 @@ function detailsBroker(id) {
     var aux3 = "";
     if (result[0].TrackingWasSent == false) {
         aux3 = "NA";
-
+        
 
     } else {
         if (result[0].TrackingStatus == false) {
-            aux3 = "Active"
-        } else {
+            aux3 ="Active"
+        }else{
             aux3 = "Idle"
         }
     }
 
     if (result.length > 0) {
         debugger;
-        $("#det_brokerHead").text(result[0].Name);
+        $("#det_brokerHead").text(result[0].BrokerNumber);
         $("#det_Name").val(result[0].Name);
         $("#det_BrokerNumber").val(result[0].BrokerNumber);
         $("#det_PickupAddress").val(result[0].PickupAddress);
@@ -572,14 +503,13 @@ function detailsBroker(id) {
         $("#det_ViewMap").val(result[0].ViewMap);
         $("#det_Observaciones").val(result[0].Observaciones);
         debugger;
-        $("#det_ViewMap").attr("href", "https://localhost:44343/" + result[0].UrlTraking);
+        $("#det_ViewMap").attr("href","https://localhost:44343/" +result[0].UrlTraking);
     }
 }
-
 function getbrokerOdersDetail(brokerid, deviceid) {
     try {
-
-        var result = null;
+        
+        var result=null;
         var token = getTokenCookie('ETTK');
         //var data = 'lastFetchOn=' + escape(lastFetchOn) + '&qtyPanels=' + qtyPanels + '&devicesPerPanel=' + devicesPerPanel;
         $.ajax({
@@ -590,8 +520,8 @@ function getbrokerOdersDetail(brokerid, deviceid) {
             dataType: "json",
             processdata: true,
             success: function (data) {
-
-                result = data;
+                
+                result= data;
             },
             error: getBrokersDevicesError,
             async: false
@@ -637,7 +567,7 @@ function showStops(stops) {
     $("#tbody_brokerStops").empty();
     $.each(stops, function (key, value) {
         row += "<tr>";
-        row += "<td><button type='button' data-toggle='modal' data-target='#formbroker' onclick=deletestop(" + value.ID + "," + value.BrokerOrderID + "," + value.DeviceID + ")>X</button></td>";
+        row += "<td><button type='button' data-toggle='modal' data-target='#formbroker' onclick=deletestop(" + value.ID + "," + value.BrokerOrderID + "," + value.DeviceID +")>X</button></td>";
         row += "<td style=display:none>" + value.ID + "</td>";
         row += "<td style=display:none>" + value.BrokerOrderID + "</td>";
         row += "<td style=display:none>" + value.DeviceID + "</td>";
@@ -647,13 +577,88 @@ function showStops(stops) {
         row += "<td style=display:none>" + value.PickupAddresscoordinatesLng + "</td>";
         row += "<td>" + value.Observations + "</td>";
         row += "<td style=display:none>" + value.CreateOn + "</td>";
-        row += "<td style=display:none>" + value.StatusID + "</td>";
+        row += "<td style=display:none>" + value.StatusID + "</td>";        
         row += "</tr>";
     });
     $("#tbody_brokerStops").append(row)
 
 
 
+}
+function sendEmails(brokerid){
+    brokerID = 0;
+    brokerID = brokerid;
+}
+function sendSms(brokerid) {
+    brokerID = 0;
+    brokerID = brokerid;
+}
+function postemail() {
+    debugger;
+    var result;
+    var token = getTokenCookie('ETTK');
+    var email = $("#emails").val();
+    var textarea = $("#message-text").val();
+    if (email.length == 0) {
+        toastr.error('Email field cannot be empty');
+        return;
+    } 
+    if (textarea.length == 0) {
+        toastr.error('Observations field cannot be empty');
+        return;
+    }
+    try {        
+        $.ajax({
+            type: "GET",
+            url: 'https://localhost:44385/Brokers.svc/sendemail?token=' + token + '&brokerID=' + brokerID + '&emails=' + email + '&resend='+false+'&observations=' + textarea,
+            contentType: "application/json; charset=utf-8",
+            data: 0,
+            dataType: "json",
+            processdata: true,
+            success: function (data) {
+                debugger;
+                if (data.isOk) {
+                    toastr.success('Email sent successfully');
+                } else {
+                    toastr.error('An error occurred in the process');
+                }
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                debugger;
+                toastr.error('An error occurred in the process');
+            },
+            async: false
+        });
+        return result;
+    }
+    catch (err) {
+        debugger;
+        console.log(err);
+    }
+}
+function saveStop(id){ 
+    debugger;
+
+    
+    $("#stopaddress").val('');
+    $("#StopDatetime").val('');
+    $("#StopObservations").val('');
+    var bool = true;
+    BrokerStop = {};
+    BrokerStop.BrokerOrderID = id;
+    $("#tbody_brokerlist tr").click(function () {
+        debugger;
+        if (bool) {
+            debugger;
+            var tr = $(this)[0];
+            BrokerStop.DateFromOrden = tr.cells[8].innerText;
+            BrokerStop.DateToOrden = tr.cells[10].innerText;            
+        }
+        bool = false
+
+    });
+    console.log(BrokerStop);
+    
 }
 function stopAdd() {
     debugger;
@@ -674,61 +679,27 @@ function stopAdd() {
         toastr.error('la fecha de la parada debe ser menor o igual a la fecha de finalizacion de la orden.');
         return;
     }
-    debugger;
     if (postBroker("newstop", JSON.stringify(BrokerStop))) {
         clearformStop();
         BrokerStop = {};
-
+        
         toastr.success('Stop created successfully');
         loadbrokerOrders(0, deviceid);
-        //getStops(BrokerStop.BrokerOrderID)
+        getStops(BrokerStop.BrokerOrderID)
     } else {
         toastr.error('ERROR create Stop');
     }
     console.log(BrokerStop);
 }
 
-function clearformStop() {
-    $("#stopaddress").val('');
-    $("#StopDatetime").val('');
-    $("#StopObservations").val('');
-
-
-
-}
-
-function saveStop(id) {
-    debugger;
-
-
-    $("#stopaddress").val('');
-    $("#StopDatetime").val('');
-    $("#StopObservations").val('');
-    var bool = true;
-    BrokerStop = {};
-    BrokerStop.BrokerOrderID = id;
-    $("#tbody_brokerlist tr").click(function () {
-        debugger;
-        if (bool) {
-            debugger;
-            var tr = $(this)[0];
-            BrokerStop.DateFromOrden = tr.cells[8].innerText;
-            BrokerStop.DateToOrden = tr.cells[10].innerText;
-        }
-        bool = false
-
-    });
-    console.log(BrokerStop);
-
-}
-function deletestop(id, brokerid, deviceid) {
+function deletestop(id,brokerid,deviceid) {
     debugger;
     var result;
     var token = getTokenCookie('ETTK');
     try {
         $.ajax({
             type: "GET",
-            url: 'https://localhost:44385/Brokers.svc/deletestop?token=' + token + '&StopID=' + id,
+            url: 'https://localhost:44385/Brokers.svc/deletestop?token='+token+'&StopID='+id,
             contentType: "application/json; charset=utf-8",
             data: 0,
             dataType: "json",
@@ -757,63 +728,12 @@ function deletestop(id, brokerid, deviceid) {
         console.log(err);
     }
 }
-function sendEmails(brokerid) {
-    brokerID = 0;
-    brokerID = brokerid;
-}
-function postemail() {
-    debugger;
-    var result;
-    var token = getTokenCookie('ETTK');
-    var email = $("#emails").val();
-    var textarea = $("#message-text").val();
-    if (email.length == 0) {
-        toastr.error('Email field cannot be empty');
-        return;
-    }
-    if (textarea.length == 0) {
-        toastr.error('Observations field cannot be empty');
-        return;
-    }
-    try {
-        $.ajax({
-            type: "GET",
-            url: 'https://localhost:44385/Brokers.svc/sendemail?token=' + token + '&brokerID=' + brokerID + '&emails=' + email + '&resend=' + false + '&observations=' + textarea,
-            contentType: "application/json; charset=utf-8",
-            data: 0,
-            dataType: "json",
-            processdata: true,
-            success: function (data) {
-                debugger;
-                if (data.isOk) {
-                    toastr.success('Email sent successfully');
-                } else {
-                    toastr.error('An error occurred in the process');
-                }
-            },
-            error: function (jqXHR, textStatus, errorThrown) {
-                debugger;
-                toastr.error('An error occurred in the process');
-            },
-            async: false
-        });
-        return result;
-    }
-    catch (err) {
-        debugger;
-        console.log(err);
-    }
-}
-function sendSms(brokerid) {
-    brokerID = 0;
-    brokerID = brokerid;
-}
 function PostsendSms() {
     //brokersms?token={token}&PBrokerID={PBrokerID}&Pobservations={Pobservations}&PPhoneNumber={PPhoneNumber}
     debugger;
     var result;
     var token = getTokenCookie('ETTK');
-    var phone = $("#smsPhone").val();
+    var phone = $("#smsPhone").val();    
     var observations = $("#smsMessage").val();
 
     if (phone.length < 10 || phone == "") {
@@ -852,9 +772,4 @@ function PostsendSms() {
         console.log(err);
     }
 }
-
-
-
-
-
 

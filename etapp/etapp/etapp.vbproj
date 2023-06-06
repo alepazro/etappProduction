@@ -784,6 +784,7 @@
     <Content Include="images\CallMe.jpg" />
     <Content Include="images\CallMe.png" />
     <Content Include="images\CallMeBtn.png" />
+    <Content Include="images\cart-header.png" />
     <Content Include="images\Checkmark.png" />
     <Content Include="images\CheckmarkX20.png" />
     <Content Include="images\ContactInfo.png" />
