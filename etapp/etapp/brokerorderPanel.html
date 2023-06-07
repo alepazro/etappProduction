@@ -294,7 +294,13 @@
                                                             <input type="checkbox" id="chksendsms" onclick="viewSms()">
                                                             <span class="slider round"></span>
                                                         </label>
-                                                        <label>Send SMS <span style="font-size:10px;color:red">USA ONLY,AREACODE + PHONE NUMBER</span></label>
+                                                        <label>
+                                                            Send SMS <span style="font-size:9px;color:red">USA,CANADA ONLY.AREACODE+PHONE NUMBER</span>
+                                                        </label>
+                                                        <label>
+                                                            <span style="font-size:9px;color:red">SEPARATE PHONE NUMBER WITH SEMICOLONS<span style="font-size:20px">(;)</span></span>
+                                                        </label>
+
                                                     </div>
                                                     <div class="col-6" id="smsphone" style="display:none">
                                                         <input id="smsPhone1" type="text" class="form-control" placeholder="phone1;phone2;phon3...">
@@ -512,14 +518,14 @@
             });
             $(function () {
                 $("#DeliveryDatetime").datepicker({
-                    dateFormat: 'dd-mm-yy'
+                    dateFormat: 'mm-dd-yy'
                 });
             });
 
             $(function () {
                 $("#PickupDatetime").datepicker(
                     {
-                        dateFormat: 'dd-mm-yy'
+                        dateFormat: 'mm-dd-yy'
                     }
                 );
             });
