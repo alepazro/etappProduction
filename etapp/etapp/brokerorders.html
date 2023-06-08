@@ -197,10 +197,10 @@
                                                 <!--<th scope="col">Device</th>-->
                                                 <th scope="col">Name</th>
                                                 <th scope="col">Order Number</th>
-                                                <th scope="col">PickupAddress</th>
-                                                <th scope="col">Pickupdetetime</th>
-                                                <th scope="col">DeliveryAddress</th>
-                                                <th scope="col">Deliverydatetime</th>
+                                                <th scope="col">Pickup Address</th>
+                                                <th scope="col">Pickup Dete Time</th>
+                                                <th scope="col">Delivery Address</th>
+                                                <th scope="col">Delivery Date Time</th>
                                                 <!--<th scope="col">CreateOn</th>
                                             <th scope="col">TrackingWasSent</th>
                                             <th scope="col">TrackingWasSentDate</th>
@@ -208,7 +208,7 @@
                                             <th scope="col">DriverName</th>
                                             <th scope="col">TrackingNumber</th>
                                             <th scope="col">TrackingStatus</th>-->
-                                                <th scope="col">CountStops</th>
+                                                <th scope="col">Stops Count</th>
                                             </tr>
                                         </thead>
                                         <tbody id="tbody_brokerlist">
@@ -244,7 +244,7 @@
                         <input type="text" class="form-control" id="det_PickupAddress" placeholder="..." disabled>
                     </div>
                     <div class="col-3">
-                        <label for="det_Pickupdetetime" class="form-label">Pickup Detetime</label>
+                        <label for="det_Pickupdetetime" class="form-label">Pickup Dete Time</label>
                         <input type="text" class="form-control" id="det_Pickupdetetime" placeholder="..." disabled>
                     </div>
                 </div>
@@ -254,7 +254,7 @@
                         <input type="text" class="form-control" id="det_DeliveryAddress" placeholder="..." disabled>
                     </div>
                     <div class="col-3">
-                        <label for="det_Deliverydatetime" class="form-label">Delivery Datetime</label>
+                        <label for="det_Deliverydatetime" class="form-label">Delivery Date Time</label>
                         <input type="text" class="form-control" id="det_Deliverydatetime" placeholder="..." disabled>
                     </div>
                     <div class="col-3">
@@ -309,7 +309,7 @@
                                 <tr>
                                     <th scope="col"></th>
                                     <th scope="col">Delivery Address</th>
-                                    <th scope="col">Delivery datetime</th>
+                                    <th scope="col">Delivery Date Time</th>
                                     <th scope="col">Observations</th>
                                 </tr>
                             </thead>
@@ -336,7 +336,7 @@
                                     <input type="hidden" id="email_brokerid">
                                     <input type="hidden" id="email_deviceid">
                                     <div class="mb-3">
-                                        <label for="recipient-name" class="col-form-label">Emails  <span style="font-size:12px;color:red">separate emails with semicolons</span></label>
+                                        <label for="recipient-name" class="col-form-label">Emails  <span style="font-size:12px;color:red">separate emails with semicolons (;)</span></label>
                                         <input type="email" class="form-control" id="emails" placeholder="em1@em1.com;em2@em2.com">
                                     </div>
                                     <div class="mb-3">
@@ -350,7 +350,7 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary" onclick="postemail()">Send message</button>
+                                <button type="button" class="btn btn-primary" onclick="postemail()">Send Message</button>
                             </div>
                         </div>
                     </div>
@@ -438,7 +438,7 @@
                                     <input type="hidden" id="sms_brokerid">
                                     <input type="hidden" id="sms_deviceid">
                                     <div class="mb-3">
-                                        <label for="sms" class="col-form-label">Phone <span style="font-size:10px;color:red">USA ONLY,AREACODE + PHONE NUMBER</span></label>
+                                        <label for="sms" class="col-form-label">Phone <span style="font-size:10px;color:red">USA CANADA ONLY.AREACODE + PHONE NUMBER. SEPARATE WITH SEMICOLON (;)</span></label>
                                         <input type="text" class="form-control" id="smsPhone" placeholder="phone1;phone2;phone3...">
                                     </div>
                                     <div class="mb-3" style="display:none">

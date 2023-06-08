@@ -471,7 +471,7 @@ function detailsBroker(id) {
     var result = getbrokerOdersDetail(id, 0);
     var resultStops = getStops(id);
     showStops(resultStops);
-    var aux1 = result[0].TrackingWasSent == false ? "Not" : "Yes";
+    var aux1 = result[0].TrackingWasSent == false ? "No" : "Yes";
     var aux2 = result[0].TrackingWasSent == false ? "NA" : result[0].SendTo;
     var aux3 = "";
     if (result[0].TrackingWasSent == false) {
