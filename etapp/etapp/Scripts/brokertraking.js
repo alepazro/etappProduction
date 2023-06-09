@@ -164,7 +164,7 @@ function buidtTraking(info) {
     //document.getElementById('Device').innerHTML = info.Device;
     document.getElementById('brokerNumber').innerHTML = info.BrokerNumber;
     document.getElementById('ValidUntil').innerHTML = info.DeliveryDatetime;
-    document.getElementById('Observations').innerHTML = "TEST";
+    document.getElementById('Observations').innerHTML = info.Observations;
 
     initMap(info);
 
