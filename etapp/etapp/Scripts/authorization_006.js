@@ -69,6 +69,10 @@ function setUserModules() {
         $('#mod5').hide();
         $('#mod13').hide();
 
+        if (document.getElementById("brokerorder") !== null) {
+            document.getElementById("brokerorder").style.display = "none";
+        }
+
         if (jsonAppFeatures.modules) {
             for (var ind = 0; ind < jsonAppFeatures.modules.length; ind++) {
                 jsonModule = eval('(' + jsonAppFeatures.modules[ind] + ')');
@@ -95,6 +99,20 @@ function setUserModules() {
                     case '13', 13:
                         $('#mod13').show();
                         break;
+                }
+            }
+        }
+        //new
+        if (jsonAppFeatures.features) {
+
+            for (var ind = 0; ind < jsonAppFeatures.features.length; ind++) {
+                jsonModule = eval('(' + jsonAppFeatures.features[ind] + ')');
+
+                if (jsonModule.hasbrokerorder) {
+                    $('#brokerorder').show();
+                    ind = jsonAppFeatures.features.length;
+                } else {
+                    ind = jsonAppFeatures.features.length;
                 }
             }
         }
@@ -263,7 +281,13 @@ function getRememberMeCookie() {
                 userName = unescape(document.cookie.substring(c_start, c_end));
                 document.getElementById('txtLogin').value = userName;
                 $('#chkRememberMe').prop('checked', true);
-                $('#chknewApp').prop('checked', newapp1);
+                if (newapp) {
+                    $('#chknewApp').prop('checked', true);
+                    $('#chkclassicApp').prop('checked', false);
+                } else {
+                    $('#chknewApp').prop('checked', false);
+                    $('#chkclassicApp').prop('checked', true);
+                }
             }
         }
     }
@@ -341,6 +365,7 @@ function changePanel(panelId) {
 // Credentials
 function validateCredentialsResponse(xml, textStatus, isMobile) {
     try {
+        debugger;
         if (textStatus == 'success') {
             if (($("string", xml).text()) == 'failure') {
                 alert('Login failed.  Please try again.');
@@ -391,7 +416,12 @@ function validateCredentialsResponse(xml, textStatus, isMobile) {
                         if (defaultModuleId == false) {
                             defaultModuleId = 1;
                         }
-                        changePanel(defaultModuleId);
+                        if (newapp) {
+                            window.open('http://localhost:55328/login.html?userGUID=' + userGUID, target = "_blank");
+                        } else {
+                            changePanel(defaultModuleId);
+                        }
+                        
                         //location.href = 'tracking.html';
                     }
                 }
@@ -410,17 +440,27 @@ function validateCredentialsResponse(xml, textStatus, isMobile) {
     }
 }
 
-function validateCredentials(isMobile) {
+function validateCredentials(isMobile,pnewapp) {
     try {
         if (isMobile == undefined) {
             isMobile = false;
         }
+        newapp = false;
+        newapp = pnewapp;
+        debugger;
         rememberMe = $('#chkRememberMe').is(':checked');
         var login = document.getElementById('txtLogin').value;
         var pw = document.getElementById('txtPassword').value;
         var reqParams = 'Login=' + escape(login) + '&pw=' + escape(pw) + '&rememberMe=' + rememberMe;
         var url = "ETWS.asmx/ValidateCredentials";
         $.post(url, reqParams, function (xml, textStatus) { validateCredentialsResponse(xml, textStatus, isMobile); });
+
+        //if (newapp) {
+        //    location.replace("http://localhost:55328/login.html");
+        //} else {
+           
+        //}
+        
     }
     catch (err) {
         alert('validateCredentials: ' + err.Description);
@@ -439,11 +479,11 @@ function logout() {
 
 function validateToken(isMobile, sourcePage) {
     
-    newapp = localStorage.getItem('chknewApp') == "true" ? true : false;
-    if (newapp) {
-        location.replace("https://localhost:44343/login.html?newapp=true")
-        return;
-    }
+    //newapp = localStorage.getItem('chknewApp') == "true" ? true : false;
+    //if (newapp) {
+    //    location.replace("https://localhost:44343/login.html?newapp=true")
+    //    return;
+    //}
 
     //This has to be placed outside the try...catch to permit its use in the catch.
     if (isMobile == undefined) {
