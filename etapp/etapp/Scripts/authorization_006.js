@@ -449,8 +449,15 @@ function validateCredentials(isMobile,pnewapp) {
         newapp = pnewapp;
         debugger;
         rememberMe = $('#chkRememberMe').is(':checked');
-        var login = document.getElementById('txtLogin').value;
-        var pw = document.getElementById('txtPassword').value;
+        var login = "";
+        var pw = "";
+        if (newapp) {
+            login = document.getElementById('txtLoginn').value;
+            pw = document.getElementById('txtPasswordn').value;
+        } else {
+            login = document.getElementById('txtLogin').value;
+            pw = document.getElementById('txtPassword').value;
+        }
         var reqParams = 'Login=' + escape(login) + '&pw=' + escape(pw) + '&rememberMe=' + rememberMe;
         var url = "ETWS.asmx/ValidateCredentials";
         $.post(url, reqParams, function (xml, textStatus) { validateCredentialsResponse(xml, textStatus, isMobile); });
