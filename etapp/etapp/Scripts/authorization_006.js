@@ -417,7 +417,7 @@ function validateCredentialsResponse(xml, textStatus, isMobile) {
                             defaultModuleId = 1;
                         }
                         if (newapp) {
-                            window.open('http://localhost:55328/login.html?userGUID=' + userGUID, target = "_blank");
+                            window.open('https://new.easitrack.net/login.html?userGUID=' + userGUID, target = "_blank");
                         } else {
                             changePanel(defaultModuleId);
                         }
