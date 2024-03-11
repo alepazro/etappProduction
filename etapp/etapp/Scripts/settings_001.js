@@ -136,7 +136,7 @@ function showSettingsDivs(id) {
 function accountSettings() {
     try {
         if (userIsAdmin == true) {
-            window.open('https://easitrack.net/account.html?t=' + getTokenCookie('ETTK'), target = "_blank");
+            window.open('https://pre.easitrack.net/account.html?t=' + getTokenCookie('ETTK'), target = "_blank");// apunta al nuevo etapp app
         }
         else {
             alert('This option is only available for Administrator users');
@@ -150,7 +150,7 @@ function accountSettings() {
 function buyNow() {
     try {
         if (userIsAdmin == true) {
-            window.open('https://easitrack.net/buy-now.html?s=1&t=' + getTokenCookie('ETTK'), target = "_blank");
+            window.open('http://localhost:52461/buy-now.html?s=1&t=' + getTokenCookie('ETTK'), target = "_blank");
         }
         else {
             alert('This option is only available for Administrator users');
