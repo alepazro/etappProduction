@@ -136,7 +136,7 @@ function showSettingsDivs(id) {
 function accountSettings() {
     try {
         if (userIsAdmin == true) {
-            window.open('https://pre.easitrack.net/account.html?t=' + getTokenCookie('ETTK'), target = "_blank");// apunta al nuevo etapp app
+            window.open('https://new.easitrack.net/account.html?t=' + getTokenCookie('ETTK'), target = "_blank");// apunta al nuevo etapp app
         }
         else {
             alert('This option is only available for Administrator users');
