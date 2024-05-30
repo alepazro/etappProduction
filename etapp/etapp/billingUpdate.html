@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html xmlns="https://www.w3.org/1999/xhtml">
 <head>
-	<link rel="icon" href="images/img/easitrack.ico">
+    <link rel="icon" href="images/img/easitrack.ico">
     <title>EasiTrack Billing Update</title>
 
     <link href="Styles/common.css" rel="stylesheet" type="text/css" />
@@ -33,7 +33,7 @@
             <br />
             <table style="width:100%;">
                 <tr>
-                    <td style="width:100px;vertical-align:top;">
+                    <!--<td style="width:100px;vertical-align:top;">
                         <div>
                             <table>
                                 <tr>
@@ -67,7 +67,7 @@
                                 </tr>
                             </table>
                         </div>
-                    </td>
+                    </td>-->
                     <td>
                         <div style="width:100%;background-color:#e2f1f5;border-bottom:1px solid #a1a1a1; padding:5px;">
                             <h3>Credit Card information</h3>
@@ -87,10 +87,12 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td style="width:20%;text-align:right;padding:5px;">Credit Card Number:</td><td><input id="ccNumber" type="text" size="50" /><label id="err_ccNumber" class="inputError"></label></td>
+                                <td style="width:20%;text-align:right;padding:5px;">Credit Card Number:</td>
+                                <td><input id="ccNumber" type="text" size="50" /><label id="err_ccNumber" class="inputError"></label></td>
                             </tr>
                             <tr>
-                                <td style="width:20%;text-align:right;padding:5px;">Security Code:</td><td><input id="ccSecCode" type="text" size="20" maxlength="4" /><label id="err_ccSecCode" class="inputError"></label></td>
+                                <td style="width:20%;text-align:right;padding:5px;">Security Code:</td>
+                                <td><input id="ccSecCode" type="text" size="20" maxlength="4" /><label id="err_ccSecCode" class="inputError"></label></td>
                             </tr>
                             <tr>
                                 <td style="width:20%;text-align:right;padding:5px;">Exp. Month:</td>
@@ -138,10 +140,12 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td style="width:20%;text-align:right;padding:5px;">CC First Name:</td><td><input id="ccFirstName" type="text" size="50" /><label id="err_ccFirstName" class="inputError"></label></td>
+                                <td style="width:20%;text-align:right;padding:5px;">CC First Name:</td>
+                                <td><input id="ccFirstName" type="text" size="50" /><label id="err_ccFirstName" class="inputError"></label></td>
                             </tr>
                             <tr>
-                                <td style="width:20%;text-align:right;padding:5px;">CC Last Name:</td><td><input id="ccLastName" type="text" size="50" /><label id="err_ccLastName" class="inputError"></label></td>
+                                <td style="width:20%;text-align:right;padding:5px;">CC Last Name:</td>
+                                <td><input id="ccLastName" type="text" size="50" /><label id="err_ccLastName" class="inputError"></label></td>
                             </tr>
                         </table>
                         <div style="width:100%;background-color:#e2f1f5;border-bottom:1px solid #a1a1a1; padding:5px;margin-top:20px;">
@@ -149,16 +153,20 @@
                         </div>
                         <table style="width:100%;background-color:#efefef;padding:5px;">
                             <tr>
-                                <td style="width:20%;text-align:right;padding:5px;">Street:</td><td><input id="ccStreet" type="text" size="50" /><label id="err_ccStreet" class="inputError"></label></td>
+                                <td style="width:20%;text-align:right;padding:5px;">Street:</td>
+                                <td><input id="ccStreet" type="text" size="50" /><label id="err_ccStreet" class="inputError"></label></td>
                             </tr>
                             <tr>
-                                <td style="width:20%;text-align:right;padding:5px;">City:</td><td><input id="ccCity" type="text" size="50" /><label id="err_ccCity" class="inputError"></label></td>
+                                <td style="width:20%;text-align:right;padding:5px;">City:</td>
+                                <td><input id="ccCity" type="text" size="50" /><label id="err_ccCity" class="inputError"></label></td>
                             </tr>
                             <tr>
-                                <td style="width:20%;text-align:right;padding:5px;">State:</td><td><input id="ccState" type="text" size="50" /><label id="err_ccState" class="inputError"></label></td>
+                                <td style="width:20%;text-align:right;padding:5px;">State:</td>
+                                <td><input id="ccState" type="text" size="50" /><label id="err_ccState" class="inputError"></label></td>
                             </tr>
                             <tr>
-                                <td style="width:20%;text-align:right;padding:5px;">Postal Code:</td><td><input id="ccPostalCode" type="text" size="50" /><label id="err_ccPostalCode" class="inputError"></label></td>
+                                <td style="width:20%;text-align:right;padding:5px;">Postal Code:</td>
+                                <td><input id="ccPostalCode" type="text" size="50" /><label id="err_ccPostalCode" class="inputError"></label></td>
                             </tr>
                             <tr>
                                 <td style="width:20%;text-align:right;padding:5px;">Country:</td>
@@ -187,7 +195,9 @@
                                 <td><input id="billingPhone" type="text" size="50" /></td>
                             </tr>
                         </table>
-
+                        <div style="width:100%;text-align:center;padding:10px;">
+                            <p style="text-align: justify; font-weight: bold; ">Note: Please allow between 24 to 48 hours for verification and processing of your updated billing information before access to your Easitrack account is restored.</p>
+                        </div>
                         <div style="width:100%;text-align:center;padding:10px;">
                             <button class="" id="btnSaveCCInfo" onclick="saveBillingInfo()">Save</button>
                         </div>
@@ -200,26 +210,26 @@
 
 </body>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js" type="text/javascript"></script>
-    <script src="Scripts/jquery.json-2.3.min.js" type="text/javascript"></script>
-    <script src="vendors/underscore-1.7/underscore-min.js"></script>
-    <script src="Scripts/db_v002.js" type="text/javascript"></script>
-    <script src="Scripts/branding.js" type="text/javascript"></script>
-    <script src="Scripts/authorization_006.js" type="text/javascript"></script>
-    <script src="Scripts/utilities_002.js" type="text/javascript"></script>
-    <script src="Scripts/billingUpdate.js" type="text/javascript"></script>
-    <script src="Scripts/creditCardValidate.js" type="text/javascript"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js" type="text/javascript"></script>
+<script src="Scripts/jquery.json-2.3.min.js" type="text/javascript"></script>
+<script src="vendors/underscore-1.7/underscore-min.js"></script>
+<script src="Scripts/db_v002.js" type="text/javascript"></script>
+<script src="Scripts/branding.js" type="text/javascript"></script>
+<script src="Scripts/authorization_006.js" type="text/javascript"></script>
+<script src="Scripts/utilities_002.js" type="text/javascript"></script>
+<script src="Scripts/billingUpdate.js" type="text/javascript"></script>
+<script src="Scripts/creditCardValidate.js" type="text/javascript"></script>
 
-    <script type="text/javascript">
-        $(document).ready(function () {
-            getBrand();
-            if (landingEvent() == false) {
-                closePage();
-            }
-            else {
-                loadCompanyInfo();
-            }
-        });
-    </script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        getBrand();
+        if (landingEvent() == false) {
+            closePage();
+        }
+        else {
+            loadCompanyInfo();
+        }
+    });
+</script>
 
 </html>
