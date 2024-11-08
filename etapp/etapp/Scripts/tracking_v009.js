@@ -4,6 +4,38 @@ var gpsAgeAlert = 30;
 var refreshLoc = 10;
 var currentGroupId = '';
 
+
+//sale off
+// Obtén el modal, la imagen y los botones
+var modal = document.getElementById("myModal");
+var img = document.getElementById("imgSale");
+var span = document.getElementsByClassName("close")[0];
+var redirectButton = document.getElementById("redirectButton");
+
+// Cuando el usuario hace clic en la imagen, se abre el modal
+img.onclick = function () {
+    modal.style.display = "block";
+}
+
+// Cuando el usuario hace clic en el botón de cierre, se cierra el modal
+span.onclick = function () {
+    modal.style.display = "none";
+}
+
+// Cuando el usuario hace clic fuera del modal, se cierra
+window.onclick = function (event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+
+// Redirigir al hacer clic en el botón del modal
+redirectButton.onclick = function () {
+    window.location.href = "https://www.ejemplo.com/ofertas"; // Aquí cambia la URL
+}
+
+//end sale off
+
 function loadDevicesGroupsCallback(data) {
     try {
         var a = 1;
@@ -1982,5 +2014,20 @@ function resetBadIgnitionMsg(deviceId) {
     catch (err) {
         alert('resetBadIgnitionMsg: ' + err.description);
     }
+}
+function bannerDisplayedToday() {
+    const currentDate = new Date().toISOString().split('T')[0]; // Obtenemos la fecha en formato YYYY-MM-DD
+    const dateSaved = localStorage.getItem("bannerOfferDate");
+    const tokenSaved = localStorage.getItem("bannerToken");
+    let token = getTokenCookie('ETTK');
+
+    // Si no hay una fecha guardada o la fecha guardada es distinta a la de hoy, mostrar el banner
+    if (dateSaved !== currentDate || tokenSaved != token) {
+        localStorage.setItem("bannerOfferDate", currentDate); // Guardar la fecha actual
+        localStorage.setItem("bannerToken", token); // Guardar la fecha actual
+        return false; // No se mostró hoy, mostrar el banner
+    }
+
+    return true; // Ya se mostró el banner hoy, no mostrar
 }
 

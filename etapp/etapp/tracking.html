@@ -16,7 +16,7 @@
         <!--<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />-->
         <link href="vendors/kendo-2013.3.1119/styles/kendo.common.min.css" rel="stylesheet" />
         <link href="vendors/kendo-2013.3.1119/styles/kendo.default.min.css" rel="stylesheet" />
-
+        
         <script type="text/javascript"> 
             if (window.location.href.indexOf('matchpointgps') != -1) {
                 document.write('<link rel="stylesheet" type="text/css" href="Styles/matchpointgps.css" />')
@@ -31,18 +31,19 @@
 
     </head>
     <body>
-        <div id="header" >
+        <div id="header">
             <div id="topMenu">
                 <div id="feedback" style="float:right;height:15px;margin:7px 3px;padding:5px;background-color:#ffffff; vertical-align:middle;cursor:pointer;">
                     <div><span style="font-weight:600;">Feedback</span></div>
+                    <img src="img/sale.png" alt="Imagen de Oferta" class="modal-trigger" id="imgSale">
                 </div>
 
-            <div style="float:right;height:15px;margin:7px 3px;padding:5px;background-color:#ffffff; vertical-align:middle;">
-                <!-- BEGIN ProvideSupport.com Text Chat Link Code -->
-                <div id="ciWtVh" style="z-index:100;position:absolute"></div><div id="scWtVh" style="display:inline"></div><div id="sdWtVh" style="display:none"></div>
-                <noscript><div style="display:inline"><a href="https://www.providesupport.com?messenger=0325vm2g5aj6809q0cspkf44yw">Live Chat</a></div></noscript>
-                <!-- END ProvideSupport.com Text Chat Link Code -->
-            </div>
+                <div style="float:right;height:15px;margin:7px 3px;padding:5px;background-color:#ffffff; vertical-align:middle;">
+                    <!-- BEGIN ProvideSupport.com Text Chat Link Code -->
+                    <div id="ciWtVh" style="z-index:100;position:absolute"></div><div id="scWtVh" style="display:inline"></div><div id="sdWtVh" style="display:none"></div>
+                    <noscript><div style="display:inline"><a href="https://www.providesupport.com?messenger=0325vm2g5aj6809q0cspkf44yw">Live Chat</a></div></noscript>
+                    <!-- END ProvideSupport.com Text Chat Link Code -->
+                </div>
 
                 <div id="buyNowDiv" style="float:right;height:15px;margin:7px 3px;padding:5px;background-color:#ffffff;vertical-align:middle;cursor:pointer;display:none;">
                     <div onclick="buyNow()"><span><img src="icons\shoppingCart15.png" alt="Buy Devices Now" /></span></div>
@@ -64,7 +65,9 @@
                     <span id="mod13"><input id="rbtELOG" name="panelType" onclick="changePanel(13)" type="radio" style="margin-top:10px;" /><span class="topMenuOption">E-LOG</span></span>
                     <span id="mod4"><input id="rbtSettings" name="panelType" onclick="changePanel(4)" type="radio" style="margin-top:10px;" /><span class="topMenuOption">Settings</span></span>
                     <span id="mod4"><input id="rbtVideo" name="panelType" onclick="changePanel(17)" type="radio" style="margin-top:10px;" /><span class="topMenuOption">Video</span></span>
+
                 </div>
+
             </div>
         </div>
         <div id="middleMenu" style="width:100%;">
@@ -77,6 +80,7 @@
                 <li><a id="brokerorder" href="brokerorderPanel.html" class="mainMenuOption"><span style="color:Yellow;">Broker Order</span></a></li>
             </ul>
         </div>
+
         <div id="wrapper">
             <div id="ctrlPanel" style="display:none; width:20%;float:left;">
                 <div id="ctrlPanelContainer">
@@ -311,8 +315,8 @@
                             <td><input class="checkbox" type="checkbox" name="geoLayers" value="yes" id="geoLayers" data-function="toggleGeofencesLayer" /></td>
                             <td><img id="help_geoLayer" src="icons\icon_question_mark.jpg" alt="help" title="Show Geofences: Turn On to overlay all your geofences. Tip: Click geofence to display more information." /></td>
                             <!--<td style="font-weight:600;padding-left:5px;">Show HotSpots </td>
-                            <td><input class="checkbox" type="checkbox" name="hotSpotsLayer" value="yes" id="hotSpotsLayer" data-function="toggleHotSpotsLayer" /></td>
-                            <td><img id="help_hotSpotsLayer" src="icons\icon_question_mark.jpg" alt="help" title="Show HotSpots: Turn On to overlay your drivers' hotspots.  HotSpots are places where your drivers go with a certain frequency, that are not created as geofences.  With HotSpots you can pin-point any place that is being visited by your drivers with or without your knowledge. HotSpots is based on a very complex analytical algorithm that extracts intelligent data from the behavior of your fleet, to give you an insight that otherwise would be nearly impossible to acquire." /></td>-->
+                        <td><input class="checkbox" type="checkbox" name="hotSpotsLayer" value="yes" id="hotSpotsLayer" data-function="toggleHotSpotsLayer" /></td>
+                        <td><img id="help_hotSpotsLayer" src="icons\icon_question_mark.jpg" alt="help" title="Show HotSpots: Turn On to overlay your drivers' hotspots.  HotSpots are places where your drivers go with a certain frequency, that are not created as geofences.  With HotSpots you can pin-point any place that is being visited by your drivers with or without your knowledge. HotSpots is based on a very complex analytical algorithm that extracts intelligent data from the behavior of your fleet, to give you an insight that otherwise would be nearly impossible to acquire." /></td>-->
                             <td style="font-weight:600;padding-left:5px;">Show Lat/Lng Grid </td>
                             <td><input class="checkbox" type="checkbox" name="latLngGridLayer" value="yes" id="latLngGridLayer" data-function="toggleLatLngGridLayer" /></td>
                             <td><img id="help_latLngGridLayer" src="icons\icon_question_mark.jpg" alt="help" title="Show Lat/Lng Grid: Turn On to overlay a grid of Latitude and Longitude. It is useful to segment your work areas in a geographical manner." /></td>
@@ -324,6 +328,8 @@
             </div>
         </div>
         <div style="clear:both;"></div>
+        <!-- The Modal -->
+
         <div id="footer" style="position:fixed;bottom:0px;width:100%;height:50px;background-color:#f6f6f6; border:1px solid #808080;">
             <table border="0" cellpadding="0" cellspacing="0" style="width:100%;" ng-controller="fleetHeartBeatCtrl">
                 <tr>
@@ -334,7 +340,7 @@
                                 <td style="padding:1px;">
                                     <img src="https://www.easitrack.net/img/road.png" alt="Road" />
                                 </td>
-                                <td style="padding:1px;"> 
+                                <td style="padding:1px;">
                                     <span style="font-size:10px; font-family:Arial; color:#000000;">Fleet Miles Today</span><br />
                                     <span style="font-size:12px; font-family:Arial; font-weight:bold; color:#636363;">{{fleet.fleetMiles}}</span>
                                     <span style="font-size:10px; color:#636363;">miles</span>
@@ -420,30 +426,47 @@
                 </tr>
             </table>
         </div>
+        <!-- Modal sale off -->
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span> <!-- Botón para cerrar el modal -->
+                <!--<h2>¡Oferta Especial!</h2>-->
+                <img src="img/bannerNovember.jpg" width="500px" height="500px" />
+                <!-- Botón para redirigir a otra página -->
+                <!--<button class="redirect-button" id="redirectButton">Ir a la página de ofertas</button>-->
+            </div>
+        </div>
 
         <div id="geofenceForm" title="Create new Geofence" style="display:none;">
             <p class="validateTips"></p>
             <table style="margin:5px;">
                 <tr>
-                    <td>Geofence Name*</td><td><input type="text" name="geoFormName" id="geoFormName" class="text ui-widget-content ui-corner-all" /></td>
+                    <td>Geofence Name*</td>
+                    <td><input type="text" name="geoFormName" id="geoFormName" class="text ui-widget-content ui-corner-all" /></td>
                 </tr>
                 <tr>
-                    <td>Street*</td><td><input type="text" name="geoFormStreet" id="geoFormStreet" class="text ui-widget-content ui-corner-all" /></td>
+                    <td>Street*</td>
+                    <td><input type="text" name="geoFormStreet" id="geoFormStreet" class="text ui-widget-content ui-corner-all" /></td>
                 </tr>
                 <tr>
-                    <td>City*</td><td><input type="text" name="geoFormCity" id="geoFormCity" class="text ui-widget-content ui-corner-all" /></td>
+                    <td>City*</td>
+                    <td><input type="text" name="geoFormCity" id="geoFormCity" class="text ui-widget-content ui-corner-all" /></td>
                 </tr>
                 <tr>
-                    <td>State*</td><td><input type="text" name="geoFormState" id="geoFormState" class="text ui-widget-content ui-corner-all" /></td>
+                    <td>State*</td>
+                    <td><input type="text" name="geoFormState" id="geoFormState" class="text ui-widget-content ui-corner-all" /></td>
                 </tr>
                 <tr>
-                    <td>Postal Code*</td><td><input type="text" name="geoFormPostalCode" id="geoFormPostalCode" class="text ui-widget-content ui-corner-all" /></td>
+                    <td>Postal Code*</td>
+                    <td><input type="text" name="geoFormPostalCode" id="geoFormPostalCode" class="text ui-widget-content ui-corner-all" /></td>
                 </tr>
                 <tr>
-                    <td>Latitude (optional)</td><td><input type="text" name="geoFormLatitude" id="geoFormLatitude" class="text ui-widget-content ui-corner-all" /></td>
+                    <td>Latitude (optional)</td>
+                    <td><input type="text" name="geoFormLatitude" id="geoFormLatitude" class="text ui-widget-content ui-corner-all" /></td>
                 </tr>
                 <tr>
-                    <td>Longitude (optional)</td><td><input type="text" name="geoFormLongitude" id="geoFormLongitude" class="text ui-widget-content ui-corner-all" /></td>
+                    <td>Longitude (optional)</td>
+                    <td><input type="text" name="geoFormLongitude" id="geoFormLongitude" class="text ui-widget-content ui-corner-all" /></td>
                 </tr>
                 <tr>
                     <td>Radius (Feet):</td>
@@ -451,7 +474,7 @@
                 </tr>
             </table>
         </div>
-      
+
         <div id="dlgTelemetry" title="Telemetry Control Panel" style="display:none;" ng-controller="telemetryCtrl">
             <div class="k-content">
                 <h1>{{dev.name}}</h1>
@@ -521,7 +544,7 @@
                 </div>
             </div>
         </div>
-        
+
         <div id="msgSystem" ng-controller="msgSystemCtrl"></div>
 
         <div id="waitingSpinner" style="display:none;"><p><img src="images/loading.gif" alt="Loading Spinner" width="100" height="100" /></p></div>
@@ -529,26 +552,26 @@
             <div id="streetViewContainer" style="width:400px;height:400px;"></div>
         </div>
 
-<!--        <script id="_webengage_script_tag" type="text/javascript">
-            window.webengageWidgetInit = window.webengageWidgetInit || function () {
-                webengage.init({
-                    licenseCode: "~10a5cbb2c"
-                }).onReady(function () {
-                    webengage.render();
-                });
-            };
+        <!--        <script id="_webengage_script_tag" type="text/javascript">
+        window.webengageWidgetInit = window.webengageWidgetInit || function () {
+            webengage.init({
+                licenseCode: "~10a5cbb2c"
+            }).onReady(function () {
+                webengage.render();
+            });
+        };
 
-            (function (d) {
-                var _we = d.createElement('script');
-                _we.type = 'text/javascript';
-                _we.async = true;
-                _we.src = (d.location.protocol == 'https:' ? "//ssl.widgets.webengage.com" : "//cdn.widgets.webengage.com") + "/js/widget/webengage-min-v-3.0.js";
-                var _sNode = d.getElementById('_webengage_script_tag');
-                _sNode.parentNode.insertBefore(_we, _sNode);
-            })(document);
-        </script>-->
+        (function (d) {
+            var _we = d.createElement('script');
+            _we.type = 'text/javascript';
+            _we.async = true;
+            _we.src = (d.location.protocol == 'https:' ? "//ssl.widgets.webengage.com" : "//cdn.widgets.webengage.com") + "/js/widget/webengage-min-v-3.0.js";
+            var _sNode = d.getElementById('_webengage_script_tag');
+            _sNode.parentNode.insertBefore(_we, _sNode);
+        })(document);
+    </script>-->
         <!-- BEGIN ProvideSupport.com Visitor Monitoring Code -->
-        <div id="ciSsCz" style="z-index:100;position:absolute"></div><div id="sdSsCz" style="display:none"></div><noscript><div style="display:inline"><a href="https://www.providesupport.com?monitor=0325vm2g5aj6809q0cspkf44yw"><img src="https://image.providesupport.com/image/0325vm2g5aj6809q0cspkf44yw.gif" style="border:0px" alt=""/></a></div></noscript>
+        <div id="ciSsCz" style="z-index:100;position:absolute"></div><div id="sdSsCz" style="display:none"></div><noscript><div style="display:inline"><a href="https://www.providesupport.com?monitor=0325vm2g5aj6809q0cspkf44yw"><img src="https://image.providesupport.com/image/0325vm2g5aj6809q0cspkf44yw.gif" style="border:0px" alt="" /></a></div></noscript>
         <!-- END ProvideSupport.com Visitor Monitoring Code -->
 
     </body>
@@ -612,6 +635,7 @@
             catch (err) {
             }
         }
+        
         $(document).ready(function () {
             getAppFeatures(1);
             toggleSwitches();
@@ -636,6 +660,9 @@
                 setLiveChat();
                 //setWebEngage();
                 pageEngagement();
+                if (!bannerDisplayedToday()) {
+                    modal.style.display = "block";
+                }
             }
             activityIndicator();
             mainMenuClick('fleetLocationDiv');

@@ -993,6 +993,7 @@
     <Content Include="img\rounded-bottom.png" />
     <Content Include="img\Rounded-top-320.png" />
     <Content Include="img\Rounded-top.png" />
+    <Content Include="img\sale.png" />
     <Content Include="img\speed.png" />
     <Content Include="img\time-idle.png" />
     <Content Include="img\time.png" />
