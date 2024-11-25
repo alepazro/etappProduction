@@ -2025,7 +2025,7 @@ function bannerDisplayedToday() {
     if (dateSaved !== currentDate || tokenSaved != token) {
         localStorage.setItem("bannerOfferDate", currentDate); // Guardar la fecha actual
         localStorage.setItem("bannerToken", token); // Guardar la fecha actual
-        return false; // No se mostró hoy, mostrar el banner
+        return true; // No se mostró hoy, mostrar el banner
     }
 
     return true; // Ya se mostró el banner hoy, no mostrar
