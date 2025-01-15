@@ -1,0 +1,71 @@
+﻿/* Reset global para eliminar cualquier margen o padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos generales para el body y el banner */
+.banner {
+    background-color: #ffffff;
+    color: orangered;
+    padding: 10px 20px; /* Ajusta padding para que el banner no sea demasiado grande */
+    width: auto; /* El banner se ajustará al contenido */
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+    border-left: 5px solid #2e69b3;
+    border-right: 5px solid #2e69b3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: auto; /* El banner se ajusta automáticamente al contenido */
+}
+
+.title-container-b {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0; /* Elimina márgenes */
+}
+
+.banner-title {
+    font-weight: bold;
+    font-size: 24px;
+    display: inline-flex;
+    align-items: center;
+    margin: 0; /* Elimina márgenes */
+    padding: 0; /* Elimina padding */
+}
+
+    .banner-title::before {
+        content: "⚡";
+        margin-right: 10px;
+        font-size: 24px;
+        animation: pulseIcon 1.5s infinite ease-in-out;
+    }
+
+@keyframes pulseIcon {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1.2);
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.banner-content {
+    margin-top: 10px;
+    padding: 0;
+    font-size: 18px;
+    opacity: 1;
+}

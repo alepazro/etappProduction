@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Important Notice</title>
+    <style>
+        /* Reset global para eliminar cualquier margen o padding */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Eliminar altura fija en html y body */
+        html, body {
+            height: auto; /* El cuerpo se ajustará al tamaño del contenido */
+            margin: 0; /* Elimina márgenes */
+            padding: 0; /* Elimina padding */
+        }
+
+        body {
+            font-family: 'Helvetica', 'Arial', sans-serif;
+            background-color: #ffffff;
+            display: flex;
+            justify-content: center; /* Centra el banner horizontalmente */
+            align-items: flex-start; /* Centra el banner verticalmente en la parte superior */
+            flex-direction: column; /* Asegura que el contenido del banner esté en columna */
+            overflow: hidden; /* Elimina el scroll */
+        }
+
+        .banner {
+            background-color: #ffffff;
+            color: #333333;
+            padding: 0 20px; /* Solo padding horizontal */
+            width: auto; /* El banner se ajustará al contenido */
+            position: relative;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            font-size: 16px;
+            border-left: 5px solid #2e69b3;
+            border-right: 5px solid #2e69b3;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            height: auto; /* Ajusta la altura automáticamente al contenido */
+        }
+
+        .title-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0; /* Elimina márgenes */
+        }
+
+        .banner-title {
+            font-weight: bold;
+            font-size: 18px;
+            display: inline-flex;
+            align-items: center;
+            margin: 0; /* Elimina márgenes */
+            padding: 0; /* Elimina padding */
+        }
+
+            .banner-title::before {
+                content: "⚡";
+                margin-right: 10px;
+                font-size: 24px;
+                animation: pulseIcon 1.5s infinite ease-in-out;
+            }
+
+        @keyframes pulseIcon {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+
+            50% {
+                transform: scale(1.2);
+                opacity: 0.8;
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .banner-content {
+            margin-top: 0;
+            padding: 0;
+            font-size: 14px;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="banner">
+        <div class="title-container">
+            <div class="banner-title">
+                Important Notice
+            </div>
+        </div>
+        <div class="banner-content">
+            <p>Please be advised that the classic version of the Easitrack platform will be discontinued at the close/end of business on Friday, February 14, 2025. The new version is now available to all customers.</p>
+        </div>
+    </div>
+</body>
+</html>
