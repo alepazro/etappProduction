@@ -25,6 +25,7 @@ function forceAutoZoomFeature() {
 
 function toggleFreezeAutoZoom(val) {
     try {
+        /*
         if (val == undefined) {
             val = false;
         }
@@ -39,6 +40,8 @@ function toggleFreezeAutoZoom(val) {
             jsonAppFeatures = false;
             getAppFeatures(1);
         }
+        */
+        console.log(1);
     }
     catch (err) {
         alert('toggleFreezeAutoZoom: ' + err.description);
